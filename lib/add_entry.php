@@ -20,12 +20,12 @@
         returnError('Bad Source (does not match regex)');
     }
 
-    if(preg_match($seperator, $dest) || preg_match($seperator, $source)) {
+    if(strpos($dest, $seperator) || strpos($source, $seperator)) {
         returnError('Cannot contain seperator!');
     }
 
     if(preg_match($urlRegex, $dest) || preg_match($pathRegex, $dest)) {
-
+        // it's ok
     } else {
         returnError('Bad Destination (does not match regex)');
     }
