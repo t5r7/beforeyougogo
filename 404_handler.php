@@ -1,6 +1,7 @@
 <?php
-    require 'common.php';
-
+    require 'manage/api/common.php';
+    $dataFile = 'manage/data/gogo.txt';
+    
     $path = strtolower(rawurldecode($_SERVER['REQUEST_URI']));
 
     if(!doesEntryExist($path)) {

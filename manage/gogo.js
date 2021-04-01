@@ -1,5 +1,5 @@
 async function fetchEntries() {
-    let j = await (await fetch(`../lib/list_entries.php`)).json();
+    let j = await (await fetch(`api/list_entries.php`)).json();
     if(j.error) return document.getElementById('js-out').innerHTML = `<p>There was an error: <br>${j.error}</b></p>`;
 
     let tableRows = ``;
@@ -36,7 +36,7 @@ async function fetchEntries() {
 }
 
 async function deleteEntry(sourceURL) {
-    let j = await (await fetch(`../lib/remove_entry.php?source=${sourceURL}`)).json();
+    let j = await (await fetch(`api/remove_entry.php?source=${sourceURL}`)).json();
 
     if(j.error) return alertAndRefresh(`Error Deleting:\n${j.error}`);
     if(j.success) return alertAndRefresh(`Success Deleting:\n${j.success}`);
@@ -44,7 +44,7 @@ async function deleteEntry(sourceURL) {
 }
 
 async function addEntry(sourceURL, destURL) {
-    let j = await (await fetch(`../lib/add_entry.php?source=${sourceURL}&dest=${destURL}`)).json();
+    let j = await (await fetch(`api/add_entry.php?source=${sourceURL}&dest=${destURL}`)).json();
 
     if(j.error) return alertAndRefresh(`Error Adding:\n${j.error}`);
     if(j.success) return alertAndRefresh(`Success Adding:\n${j.success}`);
