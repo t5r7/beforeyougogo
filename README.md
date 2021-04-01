@@ -21,3 +21,9 @@ location /data {
     return 403;
 } 
 ```
+
+---
+
+# Known Problems
+- Code quality is awful (some things have three layers of checks but others have nothing)
+- We should use SQLite instead of a text file but that's more effort
