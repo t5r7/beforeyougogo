@@ -20,8 +20,8 @@
         returnError('Bad Source (does not match regex)');
     }
 
-    if(strpos($dest, $seperator) || strpos($source, $seperator)) {
-        returnError('Cannot contain seperator!');
+    if(strpos($dest, $separator) || strpos($source, $separator)) {
+        returnError('Cannot contain separator!');
     }
 
     if(preg_match($urlRegex, $dest) || preg_match($pathRegex, $dest)) {

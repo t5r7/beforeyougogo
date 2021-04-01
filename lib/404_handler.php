@@ -8,7 +8,7 @@
     } else {
         $data = explode("\n", file_get_contents($dataFile));
         foreach($data as $line) {
-            $entry = explode($seperator, $line);
+            $entry = explode($separator, $line);
             if(strtolower($entry[0]) == $path) {
                 header("Location: $entry[1]");
                 returnSuccess("Redirecting to $entry[1]");

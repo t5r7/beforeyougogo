@@ -4,7 +4,7 @@
     $entries = Array();
     $data = explode("\n", file_get_contents($dataFile));
     foreach($data as $line) {
-        $entry = @explode($seperator, $line);
+        $entry = @explode($separator, $line);
 
         if(!empty($entry[0]) && !empty($entry[1])) {
             $thisEntry = new stdClass;
