@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BeforeYouGoGo Manager</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        
+        <main>
+            <header>
+                <h1>BeforeYouGoGo</h1>
+                <h2>ShortURL Manager</h2>
+            </header>
+
+            <div id="js-out">
+
+            </div>
+            
+            <table id="input">
+                <tr>
+                    <td class="s">
+                        <input type="text" placeholder="Source" id="in-source">
+                    </td>
+                    <td class="d">
+                        <input type="text" placeholder="Dest" id="in-dest">
+                    </td>
+                    <td class="a">
+                        <a href="javascript:addEntryWithInputs()" class="button">Add</a>
+                    </td>
+                </tr>
+            </table>
+        </main>
+
+        <script src="gogo.js"></script>
+    </body>
+</html>

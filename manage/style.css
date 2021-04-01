@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 2vh 2vw;
+  font-family: "Ubuntu", sans-serif;
+  background-color: #fff;
+}
+
+main {
+  max-width: 90em;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 2vh;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+a {
+  color: darkblue;
+  text-decoration: none;
+}
+
+a.button {
+    font-weight: bold;
+}
+
+a.red {
+    color: darkred;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+  /* border: 2px solid #aaa; */
+}
+
+thead th {
+  border-bottom: 4px solid darkblue;
+}
+
+table#input td {
+    padding-top: 2px;
+    border-top: 4px solid darkblue;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eee;
+}
+
+th.a,
+td.a {
+  width: 5%;
+}
+
+input,
+a.button {
+  display: inline-block;
+}
+
+a.button {
+  width: 100%;
+  padding: 4px 0;
+}
+
+input {
+    width: calc(100% - 16px);
+    padding: 4px 8px;
+}
