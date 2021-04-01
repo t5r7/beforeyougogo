@@ -11,12 +11,19 @@ body {
 }
 
 main {
-  max-width: 90em;
+  max-width: 60em;
   margin: 0 auto;
 }
 
 header {
   margin-bottom: 2vh;
+}
+
+header img {
+  float: left;
+  height: 4em;
+  margin-right: 1em;
+  border-radius: 8px;
 }
 
 h1,
@@ -30,11 +37,11 @@ a {
 }
 
 a.button {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 a.red {
-    color: darkred;
+  color: darkred;
 }
 
 a:hover {
@@ -44,17 +51,17 @@ a:hover {
 table {
   width: 100%;
   table-layout: fixed;
-  text-align: center;
+  /* text-align: center; */
   /* border: 2px solid #aaa; */
 }
 
 thead th {
-  border-bottom: 4px solid darkblue;
+  border-bottom: 4px solid purple;
 }
 
 table#input td {
-    padding-top: 2px;
-    border-top: 4px solid darkblue;
+  padding-top: 2px;
+  border-top: 4px solid purple;
 }
 
 tbody tr:nth-child(even) {
@@ -63,7 +70,13 @@ tbody tr:nth-child(even) {
 
 th.a,
 td.a {
-  width: 5%;
+  width: 10%;
+  text-align: center;
+}
+
+th.s,
+td.s {
+  width: 15%;
 }
 
 input,
@@ -77,6 +90,11 @@ a.button {
 }
 
 input {
-    width: calc(100% - 16px);
-    padding: 4px 8px;
+  width: calc(100% - 16px);
+  padding: 4px 8px;
+}
+
+footer {
+  margin-top: 2vh;
+  text-align: center;
 }

@@ -9,6 +9,7 @@
         
         <main>
             <header>
+                <img src="wham.jpg" ondblclick="for(e of document.querySelectorAll('td,th')){e.innerHTML='jitterbug'}window.location='https:\/\/youtu.be/pIgZ7gMze7A'">
                 <h1>BeforeYouGoGo</h1>
                 <h2>ShortURL Manager</h2>
             </header>
@@ -23,13 +24,17 @@
                         <input type="text" placeholder="Source" id="in-source">
                     </td>
                     <td class="d">
-                        <input type="text" placeholder="Dest" id="in-dest">
+                        <input type="text" placeholder="Destination" id="in-dest">
                     </td>
                     <td class="a">
                         <a href="javascript:addEntryWithInputs()" class="button">Add</a>
                     </td>
                 </tr>
             </table>
+
+            <footer>
+                <p>a thing by <a href="https://tomr.me">tom</a> &bull; <a href="https://github.com/itsmeimtom/beforeyougogo">source code & docs</a></p>
+            </footer>
         </main>
 
         <script src="gogo.js"></script>

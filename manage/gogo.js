@@ -8,7 +8,7 @@ async function fetchEntries() {
         tableRows += `
             <tr>
                 <td class="s">${entry['source']}</td>
-                <td class="d">${entry['dest']}</td>
+                <td class="d"><a href="href="${entry['dest']}"">${entry['dest']}</a></td>
                 <td class="a"><a href="javascript:deleteEntry('${entry['source']}')" class="button red">Delete</td>
             </tr>
         `
