@@ -13,7 +13,7 @@ Make sure access to /manage is controlled somehow (I just use CloudFlare Access)
 error_page 404 = /404_handler.php;
 ```
 ## Caddy
-```json
+```caddyfile
 # Version 2
 handle_errors {
     @404 {
