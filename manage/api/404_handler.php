@@ -18,7 +18,10 @@
                 returnSuccess("Redirecting to $entry[1]");
             }
         }
-        returnError('No redirect setup here!');
+
+        http_response_code(404);
+        die(file_get_contents('../../index.404.html'));
+        //returnError('No redirect setup here!');
 
     // }
 ?>

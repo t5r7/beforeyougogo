@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missing Redirect</title>
+    <link rel="shortcut icon" href="/wham.jpg" type="image/png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="/index.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <main>
+        <img src="/wham.jpg">
+        <h1><a href="/" id="js-site-host">BeforeYouGoGo</a></h1>
+        <h2>Missing Redirect</h2>
+        <p>If you were expecting to see something else here,<br>get in touch with the administrator of this site.</p>
+        <p class="subdued"><i>Do you look after this site?<br><a href="javascript:alert('please wait');" id="js-manage-link">Click here</a> to add <span id="js-path">this path</span> as a redirect.</i></p>
+    </main>
+
+    <script>
+        const path = window.location.pathname;
+        const encodedPath = btoa(path);
+        document.getElementById('js-manage-link').href = `/manage/#add${encodedPath}`;
+        document.getElementById('js-path').innerText = path;
+        document.getElementById('js-site-host').innerText = window.location.host;
+    </script>
+</body>
+
+</html>
