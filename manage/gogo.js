@@ -61,6 +61,10 @@ function addEntryWithInputs() {
     return addEntry(document.getElementById('in-source').value,document.getElementById('in-dest').value)
 }
 
+function editEntryWithInputs() {
+    return alert('Coming Soon');
+}
+
 function wasItEnterAndShouldWeDoTheThingMaybeIDunno(e) {
     if(e.keyCode === 13) {
         e.preventDefault();

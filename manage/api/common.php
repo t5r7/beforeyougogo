@@ -63,7 +63,8 @@
         $userIP = getAccessIP();
         logEntry("($userIP) alphabetized entries");
         $data = explode("\n", file_get_contents($dataFile));
-        natsort($data);
+        $data = array_filter($data); 
+        natsort($data); // i love how both of these are php array functions yet one returns a bool and one returns the array
         file_put_contents($dataFile, implode($data,"\n")); // rewrite them to the file
     }
 
@@ -72,7 +73,7 @@
         $source = strtolower($source);
         $userIP = getAccessIP();
         logEntry("($userIP) added redirect from ($source) to ($dest)");
-        file_put_contents($dataFile, "$source$separator$dest\n", FILE_APPEND);
+        file_put_contents($dataFile, "\n$source$separator$dest", FILE_APPEND);
     }
 
     function removeEntry($source) {
