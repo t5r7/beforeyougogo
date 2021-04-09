@@ -1,6 +1,5 @@
 <?php
-    require 'manage/api/common.php';
-    $dataFile = 'manage/data/gogo.txt';
+    require 'common.php';
 
     // this is a lot of nested shit should probably change it up
     $path = removeTrailingSlash(strtolower(rawurldecode($_SERVER['REQUEST_URI'])));

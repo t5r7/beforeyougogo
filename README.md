@@ -10,7 +10,7 @@ Make sure access to /manage is controlled somehow (I just use CloudFlare Access)
 # Config
 ## NGINX
 ```nginx
-error_page 404 = /404_handler.php;
+error_page 404 = /manage/api/404_handler.php;
 ```
 ## Caddy
 ```caddyfile
@@ -19,17 +19,17 @@ handle_errors {
     @404 {
         expression {http.error.status_code} == 404
     }
-    rewrite @404 /404_handler.php
+    rewrite @404 /manage/api/404_handler.php
     file_server
 }
 # Version 1
 errors {
-    404 /404_handler.php
+    404 /manage/api/404_handler.php
 }
 ```
 ## Apache
 ```apache
-ErrorDocument 404 /404_handler.php
+ErrorDocument 404 /manage/api/404_handler.php
 ```
 
 

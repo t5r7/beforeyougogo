@@ -3,12 +3,9 @@
     $logFile = '../data/logs.txt';
     $separator = '||||';
 
-    header('Content-Type: application/json');
-    
     // create the data/log files if they don't exist
     if(!file_exists($dataFile)) { file_put_contents($dataFile,''); }
     if(!file_exists($logFile)) { file_put_contents($logFile,''); }
-
 
     function logEntry($txt) {
         global $logFile;
@@ -17,10 +14,12 @@
     }
 
     function returnError($error) {
+        header('Content-Type: application/json');
         die("{\"error\":\"$error\"}");
     }
 
     function returnSuccess($message) {
+        header('Content-Type: application/json');
         die("{\"success\":\"$message\"}");
     }
 
