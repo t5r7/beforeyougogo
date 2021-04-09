@@ -14,7 +14,7 @@
         file_put_contents($logFile, "[$dateTime]: $txt\n", FILE_APPEND);
     }
 
-    function getAccessIP(){
+    function getAccessIP() {
         if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
             $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
         } else {
