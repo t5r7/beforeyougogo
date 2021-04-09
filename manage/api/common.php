@@ -1,6 +1,7 @@
 <?php
     $dataFile = '../data/gogo.txt';
     $logFile = '../data/logs.txt';
+    $logAccess = true;
     $separator = '||||';
 
     // create the data/log files if they don't exist
@@ -11,6 +12,15 @@
         global $logFile;
         $dateTime = date(DATE_ISO8601);
         file_put_contents($logFile, "[$dateTime]: $txt\n", FILE_APPEND);
+    }
+
+    function getAccessIP(){
+        if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
     }
 
     function returnError($error) {
@@ -52,7 +62,8 @@
     function addEntry($source, $dest) {
         global $dataFile, $separator;
         $source = strtolower($source);
-        logEntry("Adding redirect from ($source) to ($dest)");
+        $userIP = getAccessIP();
+        logEntry("($userIP) added redirect from ($source) to ($dest)");
         file_put_contents($dataFile, "$source$separator$dest\n", FILE_APPEND);
     }
 
@@ -60,7 +71,8 @@
         global $dataFile, $separator;
         $source = removeTrailingSlash(strtolower($source));
         $source = addLeadingSlash($source);
-        logEntry("Removing redirect from ($source)");
+        $userIP = getAccessIP();
+        logEntry("($userIP) removed redirect from ($source)");
         $data = explode("\n", file_get_contents($dataFile));
         $i = 0;
         foreach($data as $line) {
