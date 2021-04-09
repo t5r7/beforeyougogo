@@ -13,6 +13,6 @@
         }
 
         removeEntry($toDel); // TODO: Error Checking
-        returnSuccess("Removed $toDel!");
+        returnSuccess("I think we removed $toDel!");
     }
 ?>

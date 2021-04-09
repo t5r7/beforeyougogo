@@ -32,6 +32,6 @@
         returnError('That source already exists!');
     } else {
         addEntry($source, $dest); // TODO: Error Checking
-        returnSuccess('I think we added that fine!');
+        returnSuccess("I think we added $source just fine!");
     }
 ?>
