@@ -42,33 +42,39 @@ async function abc() {
 }
 
 async function deleteEntry(sourceURL) {
-    let j = await (await fetch(`api/remove_entry.php?source=${sourceURL}`)).json();
+    let j = await (await fetch(`api/remove_entry.php?source=${btoa(sourceURL)}`)).json();
 
     if(j.error) return alertAndRefresh(`Error Deleting:\n${j.error}`);
     if(j.success) return alertAndRefresh(`Success Deleting:\n${j.success}`);
     return alertAndRefresh(`Not sure if we were able to delete that, maybe try again?`);
 }
 
-async function addEntry(sourceURL, destURL) {
-    let j = await (await fetch(`api/add_entry.php?source=${sourceURL}&dest=${destURL}`)).json();
+async function addEntry(sourceURL, destURL, edit) {
+    let editParam = '';
+    if(edit) editParam = '&edit=true';
+    let j = await (await fetch(`api/add_entry.php?source=${btoa(sourceURL)}&dest=${btoa(destURL)}${editParam}`)).json();
 
     if(j.error) return alertAndRefresh(`Error Adding:\n${j.error}`);
     if(j.success) return alertAndRefresh(`Success Adding:\n${j.success}`);
     return alertAndRefresh(`Not sure if we were able to add that, maybe try again?`);
 }
 
-function addEntryWithInputs() {
-    return addEntry(document.getElementById('in-source').value,document.getElementById('in-dest').value)
+function addEntryWithInputs(editEntry) {
+    return addEntry(document.getElementById('in-source').value,document.getElementById('in-dest').value, editEntry);
 }
 
 function editEntryWithInputs() {
-    return alert('Coming Soon');
+    return addEntryWithInputs(true);
 }
 
 function wasItEnterAndShouldWeDoTheThingMaybeIDunno(e) {
     if(e.keyCode === 13) {
         e.preventDefault();
-        return addEntryWithInputs();
+        if(e.shiftKey) {
+            return editEntryWithInputs();
+        } else {
+            return addEntryWithInputs();
+        }
     }
 }
 

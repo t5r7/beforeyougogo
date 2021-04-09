@@ -4,7 +4,7 @@
     if(empty($_GET['source'])) {
         returnError('Missing Source');
     } else {
-        $toDel = addLeadingSlash(rawurldecode($_GET['source']));
+        $toDel = addLeadingSlash(rawurldecode(base64_decode($_GET['source'])));
     
         if(!doesEntryExist($toDel)) { // check if it exists before deleting
             returnError('Can\'t delete that since it doesn\'t seem to exist!');

@@ -7,8 +7,8 @@
     // if the source/dest are missing we obviously can't create a ting
     if(empty($_GET['source'])) { returnError('Missing Source'); }
     else if(empty($_GET['dest'])) { returnError('Missing Destination'); }
-    $source = $_GET['source'];
-    $dest = $_GET['dest'];
+    $source = base64_decode($_GET['source']);
+    $dest = base64_decode($_GET['dest']);
 
     // add leading slash if it doesn't exist
     $source = addLeadingSlash($source);
@@ -28,10 +28,16 @@
         returnError('Bad Destination (does not match regex)');
     }
 
+    $whatWeDid = "added";
+    if($_GET['edit']) {
+        $whatWeDid = "edited";
+        removeEntry($source);
+    }
+
     if(doesEntryExist($source)) {
         returnError('That source already exists!');
     } else {
         addEntry($source, $dest); // TODO: Error Checking
-        returnSuccess("I think we added $source just fine!");
+        returnSuccess("I think we $whatWeDid $source just fine!");
     }
 ?>
