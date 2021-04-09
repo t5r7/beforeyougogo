@@ -35,6 +35,12 @@ async function fetchEntries() {
     return document.getElementById('js-out').innerHTML = output;
 }
 
+async function abc() {
+    let j = await (await fetch(`api/alphabetize.php`)).json();
+    if(j.success) return alertAndRefresh(`Alphabetized!`);
+    return alertAndRefresh(j);
+}
+
 async function deleteEntry(sourceURL) {
     let j = await (await fetch(`api/remove_entry.php?source=${sourceURL}`)).json();
 

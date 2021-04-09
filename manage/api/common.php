@@ -58,6 +58,15 @@
         return false;
     }
 
+    function abcEntries() {
+        global $dataFile;
+        $userIP = getAccessIP();
+        logEntry("($userIP) alphabetized entries");
+        $data = explode("\n", file_get_contents($dataFile));
+        natsort($data);
+        file_put_contents($dataFile, implode($data,"\n")); // rewrite them to the file
+    }
+
     function addEntry($source, $dest) {
         global $dataFile, $separator;
         $source = strtolower($source);
