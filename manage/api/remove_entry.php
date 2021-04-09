@@ -4,11 +4,15 @@
     if(empty($_GET['source'])) {
         returnError('Missing Source');
     } else {
-        if(!doesEntryExist($_GET['source'])) { // check if it exists before deleting
+        $toDel = addLeadingSlash(rawurldecode($_GET['source']));
+    
+        logEntry("Removing redirect from ($source)");
+
+        if(!doesEntryExist($toDel)) { // check if it exists before deleting
             returnError('Can\'t delete that since it doesn\'t seem to exist!');
         }
 
-        removeEntry($_GET['source']); // TODO: Error Checking
-        returnSuccess('Removed that for you!');
+        removeEntry($toDel); // TODO: Error Checking
+        returnSuccess("Removed $toDel!");
     }
 ?>

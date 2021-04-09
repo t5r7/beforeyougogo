@@ -11,7 +11,7 @@
     $dest = $_GET['dest'];
 
     // add leading slash if it doesn't exist
-    if(substr($source, 0, 1) !== '/') { $source = "/$source"; }
+    $source = addLeadingSlash($source);
     // remove trailing slash
     $source = removeTrailingSlash($source);
 

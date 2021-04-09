@@ -31,6 +31,11 @@
         }
     }
 
+    function addLeadingSlash($input) {
+        if(substr($input, 0, 1) !== '/') { $input = "/$input"; }
+        return $input;
+    }
+
     function doesEntryExist($source) {
         global $dataFile, $separator;
         $source = strtolower($source);
@@ -54,6 +59,7 @@
     function removeEntry($source) {
         global $dataFile, $separator;
         $source = removeTrailingSlash(strtolower($source));
+        $source = addLeadingSlash($source);
         logEntry("Removing redirect from ($source)");
         $data = explode("\n", file_get_contents($dataFile));
         $i = 0;

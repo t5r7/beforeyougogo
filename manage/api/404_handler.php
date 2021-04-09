@@ -2,7 +2,7 @@
     require 'common.php';
 
     // this is a lot of nested shit should probably change it up
-    $path = removeTrailingSlash(strtolower(rawurldecode($_SERVER['REQUEST_URI'])));
+    $path = addLeadingSlash(removeTrailingSlash(strtolower(rawurldecode($_SERVER['REQUEST_URI']))));
 
      // this adds redundant I/O since if no redirect exists it'll just not redirect anyway
     //
