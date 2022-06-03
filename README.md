@@ -1,11 +1,10 @@
 # BeforeYouGoGo
-massively wip easy no-fuss flat-file php-based url shortener
+Massively-WIP no-fuss flat-file PHP-based URL shortener. Created because everything else was too complicated; I just wanted something you can shove on a web server and not care about.
 
-everything else was too complicated, i just wanted something you can shove on a web server and not care about
+![](https://img.tomr.me/Readmes/beforeyougogo/gogo.jpg)
 
 # Perms
 Make sure access to /manage is controlled somehow (I just use CloudFlare Access)
-
 
 # Config
 ## NGINX
